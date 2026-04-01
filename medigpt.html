@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MediGPT | Mounikesh Goud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #050711 0%, #071020 45%, #050813 100%); color: #eef2ff; line-height: 1.7; }
+    .container { width: min(calc(100% - 32px), 1000px); margin: 0 auto; padding: 40px 0 60px; }
+    .back { display: inline-block; margin-bottom: 28px; color: #5ce1e6; text-decoration: none; font-weight: 600; }
+    .hero { background: rgba(18, 25, 49, 0.72); border: 1px solid rgba(125, 152, 255, 0.18); border-radius: 24px; padding: 28px; margin-bottom: 24px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 12px; }
+    h2 { margin-top: 0; color: #5ce1e6; font-size: 1.3rem; }
+    p { color: #a8b2d1; }
+    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; }
+    .btn-primary { background: linear-gradient(135deg, #5ce1e6, #8dc8ff); color: #071020; }
+    .btn-secondary { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #eef2ff; }
+    .section { background: rgba(18, 25, 49, 0.55); border: 1px solid rgba(125, 152, 255, 0.14); border-radius: 20px; padding: 24px; margin-bottom: 18px; }
+    ul { color: #a8b2d1; padding-left: 20px; }
+    .tech { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #dce6ff; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to Portfolio</a>
+
+    <div class="hero">
+      <h1>MediGPT – AI-Powered Healthcare Assistant</h1>
+      <p>
+        A healthcare-focused LLM assistant built to answer domain-specific medical questions using
+        Retrieval-Augmented Generation, semantic retrieval, and trusted clinical documents.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://github.com/mounikesh08/medigpt" target="_blank">View GitHub</a>
+        <a class="btn btn-secondary" href="#">Live Demo</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Problem</h2>
+      <p>
+        Healthcare information is often stored in PDFs and unstructured clinical documents, which makes
+        it difficult for users to quickly retrieve accurate, domain-specific answers. Generic chatbots can
+        hallucinate, which is especially risky in healthcare-related contexts.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Solution</h2>
+      <p>
+        Built a domain-specific RAG system that ingests clinical documents, chunks them, generates embeddings,
+        stores them in vector databases, retrieves relevant medical context, and produces grounded responses
+        using an LLM. The backend was implemented with FastAPI and deployed in a Dockerized cloud-ready setup.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Architecture</h2>
+      <ul>
+        <li>Clinical document ingestion</li>
+        <li>PDF and text preprocessing</li>
+        <li>Chunking for retrieval optimization</li>
+        <li>Embedding generation for semantic retrieval</li>
+        <li>Vector storage using FAISS / ChromaDB</li>
+        <li>Retrieval-grounded LLM response generation</li>
+        <li>FastAPI backend for low-latency interaction</li>
+        <li>Dockerized deployment on AWS-ready infrastructure</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Tech Stack</h2>
+      <div class="tech">
+        <span class="chip">Python</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">AWS Bedrock</span>
+        <span class="chip">FAISS</span>
+        <span class="chip">ChromaDB</span>
+        <span class="chip">Docker</span>
+        <span class="chip">AWS</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Domain-specific healthcare document querying</li>
+        <li>Retrieval grounding to reduce hallucinations</li>
+        <li>Low-latency API interaction</li>
+        <li>Semantic search for relevant clinical context</li>
+        <li>Evaluation workflow for answer quality and retrieval performance</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Enabled faster access to relevant medical information from unstructured documents</li>
+        <li>Improved answer grounding and trustworthiness compared to generic chatbots</li>
+        <li>Demonstrated safe adaptation of LLM systems for domain-specific use cases</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
