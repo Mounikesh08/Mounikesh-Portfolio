@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Agent Copilot | Mounikesh Goud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #050711 0%, #071020 45%, #050813 100%);
+      color: #eef2ff;
+      line-height: 1.7;
+    }
+    .container {
+      width: min(calc(100% - 32px), 1000px);
+      margin: 0 auto;
+      padding: 40px 0 60px;
+    }
+    .back {
+      display: inline-block;
+      margin-bottom: 28px;
+      color: #5ce1e6;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .hero {
+      background: rgba(18, 25, 49, 0.72);
+      border: 1px solid rgba(125, 152, 255, 0.18);
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin: 0 0 12px;
+    }
+    h2 {
+      margin-top: 0;
+      color: #5ce1e6;
+      font-size: 1.3rem;
+    }
+    p {
+      color: #a8b2d1;
+    }
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #5ce1e6, #8dc8ff);
+      color: #071020;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #eef2ff;
+    }
+    .section {
+      background: rgba(18, 25, 49, 0.55);
+      border: 1px solid rgba(125, 152, 255, 0.14);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 18px;
+    }
+    ul {
+      color: #a8b2d1;
+      padding-left: 20px;
+    }
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce6ff;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to Portfolio</a>
+
+    <div class="hero">
+      <h1>AI Agent Copilot – Production-Ready LLM Assistant</h1>
+      <p>
+        A production-oriented AI assistant designed to retrieve, analyze, and summarize documents
+        using Retrieval-Augmented Generation (RAG), semantic search, and multi-step reasoning workflows.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://github.com/mounikesh08/ai-agent-copilot" target="_blank">View GitHub</a>
+        <a class="btn btn-secondary" href="#">Live Demo</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Problem</h2>
+      <p>
+        Traditional document search tools return keyword matches, but they do not understand intent,
+        context, or relationships between pieces of information. Users needed a system that could answer
+        natural language questions and reduce manual document search effort.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Solution</h2>
+      <p>
+        Built an AI copilot using FastAPI, LangChain, FAISS/ChromaDB, and LLM APIs. The system ingests
+        documents, generates embeddings, stores them in a vector database, retrieves relevant chunks,
+        and produces grounded answers using an LLM.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Architecture</h2>
+      <ul>
+        <li>Document ingestion and preprocessing</li>
+        <li>Chunking for retrieval optimization</li>
+        <li>Embedding generation for semantic search</li>
+        <li>Vector storage with FAISS / ChromaDB</li>
+        <li>Retrieval pipeline for relevant context</li>
+        <li>LLM-based response generation</li>
+        <li>FastAPI backend for serving requests</li>
+        <li>Docker containerization for deployment</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Tech Stack</h2>
+      <div class="tech">
+        <span class="chip">Python</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">FAISS</span>
+        <span class="chip">ChromaDB</span>
+        <span class="chip">Docker</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Multi-agent style reasoning workflows</li>
+        <li>Context-aware document querying</li>
+        <li>Semantic search over unstructured data</li>
+        <li>Conversation memory across sessions</li>
+        <li>Scalable API-based deployment</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Improved document search with context-aware answers</li>
+        <li>Reduced dependency on manual navigation through files</li>
+        <li>Created reusable architecture for future AI assistant workflows</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
