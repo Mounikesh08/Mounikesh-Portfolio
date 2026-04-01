@@ -1,161 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mounikesh Goud | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mounikesh Goud | Applied AI Engineer</title>
+  <meta name="description" content="Applied AI Engineer portfolio showcasing Generative AI, LLMs, RAG systems, MLOps, and production ML projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #060816;
+      --bg-soft: #0b1123;
+      --card: rgba(18, 25, 49, 0.72);
+      --card-strong: rgba(18, 25, 49, 0.92);
+      --text: #eef2ff;
+      --muted: #a8b2d1;
+      --border: rgba(125, 152, 255, 0.18);
+      --blue: #69a7ff;
+      --teal: #5ce1e6;
+      --purple: #8f6bff;
+      --glow: 0 0 32px rgba(92, 225, 230, 0.18);
+      --radius: 22px;
+      --radius-sm: 16px;
+      --shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(105, 167, 255, 0.18), transparent 22%),
+        radial-gradient(circle at 85% 10%, rgba(143, 107, 255, 0.16), transparent 24%),
+        radial-gradient(circle at 80% 85%, rgba(92, 225, 230, 0.12), transparent 22%),
+        linear-gradient(180deg, #050711 0%, #071020 45%, #050813 100%);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+      pointer-events: none;
+      opacity: 0.18;
+      z-index: -2;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: -1;
+      animation: float 10s ease-in-out infinite;
+    }
+
+    .orb.one {
+      width: 220px; height: 220px;
+      background: rgba(105, 167, 255, 0.32);
+      top: 80px; left: -40px;
+    }
+
+    .orb.two {
+      width: 280px; height: 280px;
+      background: rgba(143, 107, 255, 0.24);
+      right: -60px; top: 120px;
+      animation-delay: -2s;
+    }
+
+    .orb.three {
+      width: 260px; height: 260px;
+      background: rgba(92, 225, 230, 0.16);
+      right: 10%; bottom: 10%;
+      animation-delay: -4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) scale(1); }
+      50% { transform: translateY(-20px) scale(1.04); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(4, 8, 20, 0.62);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 0;
+      gap: 16px;
+    }
+
+    .brand {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    .brand span {
+      color: var(--teal);
+      text-shadow: 0 0 16px rgba(92, 225, 230, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .hero {
+      padding: 70px 0 42px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: #dfe7ff;
+      background: rgba(255,255,255,0.03);
+      box-shadow: var(--glow);
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      box-shadow: 0 0 16px var(--teal);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      max-width: 9ch;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #dfe8ff 35%, #8bdcff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 22px 0 28px;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.28s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      color: #071020;
+      background: linear-gradient(135deg, var(--teal), #8dc8ff);
+      box-shadow: 0 10px 30px rgba(92, 225, 230, 0.22);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      color: #e8eeff;
+      border-color: var(--border);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.24);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .socials {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .socials a:hover { color: #fff; }
+
+    .hero-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(17, 24, 48, 0.88), rgba(11, 17, 35, 0.78));
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow), var(--glow);
+      overflow: hidden;
+      min-height: 480px;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -60px auto;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(143, 107, 255, 0.34), transparent 70%);
+      filter: blur(20px);
+    }
+
+    .profile-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 26px 0 22px;
+    }
+
+    .profile-ring {
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      padding: 8px;
+      background: linear-gradient(135deg, rgba(92,225,230,0.8), rgba(143,107,255,0.85), rgba(105,167,255,0.7));
+      box-shadow: 0 0 40px rgba(92, 225, 230, 0.18);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    .profile-ring img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      border: 5px solid rgba(8, 12, 24, 0.95);
+      background: #0c1222;
+    }
+
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 35px rgba(92,225,230,0.15); }
+      50% { box-shadow: 0 0 50px rgba(143,107,255,0.24); }
+    }
+
+    .mini-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 34px 0;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      letter-spacing: -0.04em;
+      margin: 0 0 8px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      margin: 0;
+      max-width: 720px;
+      line-height: 1.75;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .stat-card, .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+    }
+
+    .stat-card {
+      padding: 20px 18px;
+    }
+
+    .stat-number {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      display: block;
+      padding: 22px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+      min-height: 260px;
+      background: linear-gradient(160deg, rgba(16, 25, 52, 0.95), rgba(11, 17, 35, 0.84));
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(92,225,230,0.35);
+      box-shadow: var(--shadow), 0 0 40px rgba(92, 225, 230, 0.12);
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -50px -50px auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(92,225,230,0.18), transparent 65%);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover::before { transform: scale(1.12); }
+
+    .project-badge {
+      display: inline-flex;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dfe9ff;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+
+    .project-title {
+      margin: 0 0 10px;
+      font-size: 1.45rem;
+      line-height: 1.25;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      line-height: 1.72;
+      margin: 0 0 16px;
+      font-size: 0.98rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.85rem;
+      color: #d5def7;
+    }
+
+    .project-points {
+      padding-left: 18px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      color: #dffcff;
+      font-weight: 600;
+      margin-top: auto;
+    }
+
+    .skills-grid,
+    .experience-grid,
+    .cert-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .skill-card,
+    .exp-card,
+    .cert-card,
+    .contact-card {
+      padding: 22px;
+    }
+
+    .skill-card h3,
+    .exp-card h3,
+    .cert-card h3,
+    .contact-card h3 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    .skill-list,
+    .cert-list,
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-list span,
+    .cert-list span,
+    .contact-list a,
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #dce6ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .exp-meta {
+      color: var(--teal);
+      font-weight: 600;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .exp-card p, .cert-card p, .contact-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0 0 14px;
+    }
+
+    .exp-card ul, .cert-card ul {
+      padding-left: 18px;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-card strong { color: #fff; }
+
+    .footer {
+      padding: 28px 0 46px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    .reveal { opacity: 0; transform: translateY(26px); transition: 0.7s ease; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1100px) {
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      .hero-grid, .projects-grid, .skills-grid, .experience-grid, .cert-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { max-width: none; }
+      .hero-card { min-height: auto; }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links { gap: 12px; }
+      .hero { padding-top: 44px; }
+      .section-head { align-items: flex-start; flex-direction: column; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .profile-ring { width: 210px; height: 210px; }
+      .btn { width: 100%; }
+      .cta-group { flex-direction: column; }
+    }
+
+    @media (max-width: 460px) {
+      .stats { grid-template-columns: 1fr; }
+      .section-title { font-size: 1.7rem; }
+      .project-title { font-size: 1.22rem; }
+    }
+  </style>
 </head>
 <body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
 
-    <header class="hero-section">
-        <div class="header-nav">
-            <span class="portfolio-title">MOUNIKESH GOUD PORTFOLIO</span>
-        </div>
-        <div class="hero-content">
-            <div class="profile-pic-container">
-                <img src="profile-pic.png" alt="Mounikesh Goud" class="profile-pic">
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/Mounikesh08" target="_blank" aria-label="GitHub" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/mounikesh-goud-4826b5214/" target="_blank" aria-label="LinkedIn" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            </div>
-            <h2 class="hero-description">Solving Real-World Challenges with Machine Learning & Deep Learning.</h2>
-            <nav class="main-navigation-buttons">
-                <a href="#projects" class="nav-button">PROJECTS &rarr;</a>
-                <a href="#experience" class="nav-button">YOUTUBE VIDEOS &rarr;</a>
-                <a href="#skills" class="nav-button">ARTICLES &rarr;</a>
-                <a href="#achievements" class="nav-button">ACHIEVEMENTS &rarr;</a>
-            </nav>
-        </div>
-    </header>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Mounikesh <span>AI</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <main>
-    <section id="projects" class="portfolio-section">
-        <h3 class="section-title">Projects</h3>
-        <div class="grid-container">
-             <a href="https://github.com/Mounikesh08/Ai-agent-copilot-multi-agent-rag" target="_blank" rel="noopener noreferrer" class="grid-item color-1">
-                <div class="grid-item-content">
-                    <h4>AI Agent Copilot Multi Agent Rag</h4>
-                    <p>FastApi, Streamlit, Langchain</p>
-                </div>
-            </a>
-               <a href="https://github.com/Mounikesh08/AI-Attendance-system-using-computer-vision" target="_blank" rel="noopener noreferrer" class="grid-item color-1">
-                <div class="grid-item-content">
-                    <h4>AI Attendance System using Computer Vision</h4>
-                    <p>OpenCV, Dlib</p>
-                </div>
-            </a>
-            <a href="https://github.com/Mounikesh08/Predicting-flight-prices-using-Machine-learning" target="_blank" rel="noopener noreferrer" class="grid-item color-2">
-                <div class="grid-item-content">
-                    <h4>Predicting Flight Ticket Prices Using ML</h4>
-                    <p>Machine Learning, Azure</p>
-                </div>
-            </a>
-            <a href="https://github.com/Mounikesh08/RAG-Search-Engine-Using-AWS-and-Langchain" target="_blank" rel="noopener noreferrer" class="grid-item color-3">
-                <div class="grid-item-content">
-                    <h4>RAG Search Engine Using AWS and Langchain</h4>
-                    <p>AWS Bedrock, Langchain, FAISS, Streamlit</p>
-                </div>
-            </a>
-            <a href="https://github.com/Mounikesh08/Non-contact-hand-gesture-based-wireless-robot" target="_blank" rel="noopener noreferrer" class="grid-item color-4">
-                <div class="grid-item-content">
-                    <h4>Non-Contact Hand Gesture Based Wireless Robot</h4>
-                    <p>Embedded Systems, Wireless Control</p>
-                </div>
-            </a>
-             <a href="https://github.com/Mounikesh08/MediGPT--AI-powered-healthcare-assistant" target="_blank" rel="noopener noreferrer" class="grid-item color-5">
-                <div class="grid-item-content">
-                    <h4>MediGPT – AI-Powered Healthcare Chatbot</h4>
-                    <p>FastAPI, Langchain, AWSBedrock, React</p>
-                </div>
-            </a>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Available for AI / Applied ML roles</div>
+          <h1><span class="gradient-text">Building Scalable AI Systems</span> with LLMs, RAG & Real-World Impact.</h1>
+          <p>
+            Applied AI Engineer with 5+ years of experience building production ML and LLM systems.
+            I specialize in Generative AI, Retrieval-Augmented Generation, semantic search, MLOps,
+            and scalable cloud deployments across AWS, GCP, and Azure.
+          </p>
+          <div class="cta-group">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="https://github.com/Mounikesh08" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://linkedin.com/in/mounikesh-goud-4826b5214/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <div class="socials">
+            <a href="mailto:mounikeshgoud34@gmail.com">mounikeshgoud34@gmail.com</a>
+            <a href="tel:+13124933102">(312) 493-3102</a>
+            <a href="#contact">Chicago, IL</a>
+          </div>
         </div>
+
+        <div class="hero-card reveal">
+          <div class="mini-card">Applied AI Engineer | Generative AI, LLMs & MLOps</div>
+          <div class="profile-wrap">
+            <div class="profile-ring">
+              <img src="profile.jpg" alt="Mounikesh Goud profile photo" />
+            </div>
+          </div>
+          <div class="mini-card">
+            Designed production ML and LLM systems with measurable impact: reduced inventory overstock by 18%,
+            processed 100K+ records through automated ETL pipelines, and cut manual reporting effort by 30%.
+            Built RAG systems, semantic search, FastAPI services, and Dockerized AI workflows for cloud deployment.
+          </div>
+        </div>
+      </div>
     </section>
-</main>
 
-        <section id="achievements" class="portfolio-section">
-            <h3 class="section-title">Certifications & Achievements</h3>
-            <div class="grid-container achievements-grid">
-                <div class="grid-item achievement-item color-1">
-                    <div class="grid-item-content">
-                        <h4>Generative AI with Large Language Models</h4>
-                        <p class="issuing-org">Deeplearning.ai</p>
-                        <a href="images/GenAI" target="_blank" rel="noopener noreferrer" class="view-cert-link">
-                            <img src="images/GenAI" alt="Generative AI Certificate Thumbnail" class="cert-thumbnail">
-                            View Certificate
-                        </a>
-                        <p class="date-earned">Issued: [Month Year]</p>
-                        <p class="achievement-description">Gained expertise in building and applying large language models for generative AI tasks.</p>
-                    </div>
-                </div>
+    <section class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Impact Snapshot</h2>
+            <p class="section-sub">A quick overview of measurable outcomes delivered across enterprise AI, ML, and data systems.</p>
+          </div>
+        </div>
+        <div class="stats">
+          <div class="stat-card"><div class="stat-number" data-target="5">0</div><div class="stat-label">Years AI Experience</div></div>
+          <div class="stat-card"><div class="stat-number" data-target="10">0</div><div class="stat-label">Production AI Projects</div></div>
+          <div class="stat-card"><div class="stat-number" data-target="100">0</div><div class="stat-label">K+ Records Processed</div></div>
+          <div class="stat-card"><div class="stat-number" data-target="18">0</div><div class="stat-label">% Reduction in Inventory Overstock</div></div>
+          <div class="stat-card"><div class="stat-number" data-target="30">0</div><div class="stat-label">% Reduction in Manual Reporting</div></div>
+          <div class="stat-card"><div class="stat-number" data-target="15">0</div><div class="stat-label">% Increase in Model Accuracy</div></div>
+        </div>
+      </div>
+    </section>
 
-                <div class="grid-item achievement-item color-2">
-                    <div class="grid-item-content">
-                        <h4>AWS Machine Learning Specialty MLS-C01</h4>
-                        <p class="issuing-org">Udemy (Placeholder for actual AWS Cert)</p>
-                        <a href="images/certification-aws-ml.jpg" target="_blank" rel="noopener noreferrer" class="view-cert-link">
-                            <img src="images/certification-aws-ml_thumb.jpg" alt="AWS ML Specialty Certificate Thumbnail" class="cert-thumbnail">
-                            View Certificate
-                        </a>
-                        <p class="date-earned">Issued: [Month Year]</p>
-                        <p class="achievement-description">Developed proficiency in machine learning concepts and their implementation on AWS.</p>
-                    </div>
-                </div>
+    <section id="about" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-sub">
+              I build production-ready AI systems that connect data engineering, machine learning, and LLM-driven user experiences.
+              My work spans forecasting, semantic retrieval, AI assistants, and cloud-native deployment pipelines.
+            </p>
+          </div>
+        </div>
+        <div class="card" style="padding: 24px;">
+          <p class="section-sub" style="max-width:none; margin:0;">
+            I am an Applied AI and Machine Learning Engineer with around 5 years of experience delivering business impact through production ML,
+            RAG systems, and scalable APIs. I have built forecasting pipelines using TensorFlow and PyTorch, engineered ETL/ELT workflows with Python,
+            Spark, Airflow, and dbt, and deployed LLM-powered services using FastAPI, Docker, AWS, GCP, and Azure. I enjoy solving real-world problems,
+            optimizing systems for performance and reliability, and collaborating across technical and non-technical teams.
+          </p>
+        </div>
+      </div>
+    </section>
 
-                <div class="grid-item achievement-item color-3">
-                    <div class="grid-item-content">
-                        <h4>Machine Learning, Data Science, and GenAI with Python</h4>
-                        <p class="issuing-org">Udemy</p>
-                        <a href="images/GenAI" target="_blank" rel="noopener noreferrer" class="view-cert-link">
-                            <img src="images/GenAI" alt="ML, DS, GenAI with Python Certificate Thumbnail" class="cert-thumbnail">
-                            View Certificate
-                        </a>
-                        <p class="date-earned">Issued: [Month Year]</p>
-                        <p class="achievement-description">Comprehensive training in ML, data science fundamentals, and GenAI using Python.</p>
-                    </div>
-                </div>
+    <section id="projects" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-sub">Click any project card to open the GitHub repository in a new tab.</p>
+          </div>
+        </div>
 
-                <div class="grid-item achievement-item color-4">
-                    <div class="grid-item-content">
-                        <h4>Prize and Medal for Robotic Project</h4>
-                        <p class="issuing-org">St Mary's Engineering College/</p>
-                        <p class="date-earned">Awarded: [2022]</p>
-                        <p class="achievement-description">Recognized for innovative design and execution of a robotic project.</p>
-                    </div>
-                </div>
+        <div class="projects-grid">
+          <a class="card project-card" href="https://github.com/Mounikesh08/Ai-agent-copilot-multi-agent-rag" target="_blank" rel="noopener noreferrer">
+            <div class="project-badge">LLM Assistant</div>
+            <h3 class="project-title">AI Agent Copilot – Production-Ready LLM Assistant</h3>
+            <p class="project-desc">Built a production-grade AI copilot using multi-agent workflows and RAG for document understanding and workflow automation.</p>
+            <div class="project-tech">
+              <span class="chip">FastAPI</span>
+              <span class="chip">LangChain</span>
+              <span class="chip">FAISS</span>
+              <span class="chip">ChromaDB</span>
+              <span class="chip">Docker</span>
+            </div>
+            <ul class="project-points">
+              <li>Multi-agent orchestration with reasoning workflows</li>
+              <li>Semantic search and context-aware responses</li>
+              <li>Conversation memory and scalable deployment</li>
+            </ul>
+            <div class="project-footer"><span>View Code →</span><span>GitHub</span></div>
+          </a>
 
-                <div class="grid-item achievement-item color-1">
-                    <div class="grid-item-content">
-                        <h4>First Prize in University Dance Competitions (3 times)</h4>
-                        <p class="issuing-org">St Mary's Engineering College</p>
-                        <p class="date-earned">Awarded: [2022]</p>
-                        <p class="achievement-description">Consistently secured top positions in inter-university dance events.</p>
-                    </div>
-                </div>
+          <a class="card project-card" href="https://github.com/Mounikesh08/MediGPT--AI-powered-healthcare-assistant" target="_blank" rel="noopener noreferrer">
+            <div class="project-badge">Healthcare GenAI</div>
+            <h3 class="project-title">MediGPT – AI-Powered Healthcare Assistant</h3>
+            <p class="project-desc">Designed and deployed a domain-specific RAG system for medical queries using unstructured clinical documents and LLM APIs.</p>
+            <div class="project-tech">
+              <span class="chip">FastAPI</span>
+              <span class="chip">LangChain</span>
+              <span class="chip">AWS Bedrock</span>
+              <span class="chip">FAISS</span>
+              <span class="chip">Docker</span>
+            </div>
+            <ul class="project-points">
+              <li>End-to-end RAG pipeline from ingestion to response</li>
+              <li>Retrieval grounding to reduce hallucination</li>
+              <li>Low-latency API-backed interaction</li>
+            </ul>
+            <div class="project-footer"><span>View Code →</span><span>GitHub</span></div>
+          </a>
 
-                <div class="grid-item achievement-item color-2">
-                    <div class="grid-item-content">
-                        <h4>Best Entertainer Award for Hosting University Event</h4>
-                        <p class="issuing-org">St Mary's Engineering College/</p>
-                        <p class="date-earned">Awarded: [2022]</p>
-                        <p class="achievement-description">Acknowledged for outstanding hosting and engaging performance at university events.</p>
-                    </div>
-                </div>
-                </div>
-        </section>
-    </main>
+          <a class="card project-card" href="https://github.com/Mounikesh08/RAG-Search-Engine-Using-AWS-and-Langchain" target="_blank" rel="noopener noreferrer">
+            <div class="project-badge">Semantic Search</div>
+            <h3 class="project-title">RAG Document Search Engine – AWS + LangChain</h3>
+            <p class="project-desc">Built a scalable semantic search system for natural language querying over large collections of unstructured documents.</p>
+            <div class="project-tech">
+              <span class="chip">AWS Bedrock</span>
+              <span class="chip">LangChain</span>
+              <span class="chip">FAISS</span>
+              <span class="chip">Streamlit</span>
+            </div>
+            <ul class="project-points">
+              <li>Optimized retrieval pipeline for lower latency</li>
+              <li>Prompt engineering to improve answer accuracy</li>
+              <li>Interactive UI for non-technical users</li>
+            </ul>
+            <div class="project-footer"><span>View Code →</span><span>GitHub</span></div>
+          </a>
 
-    <footer>
-        <p>&copy; <span id="current-year"></span> Mounikesh Goud. All rights reserved.</p>
-    </footer>
+          <a class="card project-card" href="https://github.com/Mounikesh08/AI-Attendance-system-using-computer-vision" target="_blank" rel="noopener noreferrer">
+            <div class="project-badge">Computer Vision</div>
+            <h3 class="project-title">AI Attendance System using Computer Vision</h3>
+            <p class="project-desc">Developed a real-time face recognition attendance system for automated employee or student tracking.</p>
+            <div class="project-tech">
+              <span class="chip">OpenCV</span>
+              <span class="chip">Dlib</span>
+              <span class="chip">Python</span>
+            </div>
+            <ul class="project-points">
+              <li>Real-time face recognition workflow</li>
+              <li>Automated attendance marking</li>
+              <li>Practical AI application with computer vision</li>
+            </ul>
+            <div class="project-footer"><span>View Code →</span><span>GitHub</span></div>
+          </a>
 
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
+          <a class="card project-card" href="https://github.com/Mounikesh08/Predicting-flight-prices-using-Machine-learning" target="_blank" rel="noopener noreferrer">
+            <div class="project-badge">Forecasting</div>
+            <h3 class="project-title">Flight Price Prediction System</h3>
+            <p class="project-desc">Built a machine learning system for predicting airline ticket prices using historical features and forecasting models.</p>
+            <div class="project-tech">
+              <span class="chip">TensorFlow</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">Azure</span>
+            </div>
+            <ul class="project-points">
+              <li>Historical trend-based fare estimation</li>
+              <li>Feature-driven model pipeline</li>
+              <li>Cloud-oriented ML experimentation</li>
+            </ul>
+            <div class="project-footer"><span>View Code →</span><span>GitHub</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Skills</h2>
+            <p class="section-sub">Core tools and technologies used across production ML, data platforms, and Generative AI workflows.</p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card skill-card">
+            <h3>LLM & Generative AI</h3>
+            <div class="skill-list">
+              <span>LangChain</span><span>Prompt Engineering</span><span>RAG</span><span>Hugging Face Transformers</span><span>LLM APIs</span><span>AWS Bedrock</span>
+            </div>
+          </div>
+          <div class="card skill-card">
+            <h3>Machine Learning & Deep Learning</h3>
+            <div class="skill-list">
+              <span>TensorFlow</span><span>PyTorch</span><span>Scikit-learn</span><span>XGBoost</span><span>Forecasting</span><span>Model Evaluation</span>
+            </div>
+          </div>
+          <div class="card skill-card">
+            <h3>Data Engineering & Pipelines</h3>
+            <div class="skill-list">
+              <span>Apache Spark</span><span>ETL</span><span>ELT</span><span>Airflow</span><span>dbt</span><span>Pandas</span><span>NumPy</span><span>SQL</span>
+            </div>
+          </div>
+          <div class="card skill-card">
+            <h3>Backend, MLOps & Cloud</h3>
+            <div class="skill-list">
+              <span>FastAPI</span><span>Docker</span><span>CI/CD</span><span>MLOps</span><span>LLMOps</span><span>AWS</span><span>GCP Vertex AI</span><span>Azure</span><span>SageMaker</span><span>EC2</span><span>S3</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Experience</h2>
+            <p class="section-sub">Professional experience across enterprise forecasting, AI platforms, ETL pipelines, and stakeholder-facing analytics.</p>
+          </div>
+        </div>
+
+        <div class="experience-grid">
+          <div class="card exp-card">
+            <div class="exp-meta">Governors State University | Applied AI & Data Analyst | Oct 2023 – May 2025</div>
+            <h3>Applied AI & Data Systems</h3>
+            <ul>
+              <li>Architected end-to-end ETL pipelines in Python with Airflow and dbt, ingesting 100K+ institutional and public records.</li>
+              <li>Built forecasting models in TensorFlow and integrated them into CI/CD workflows, improving planning accuracy by ~12%.</li>
+              <li>Delivered automated Power BI and Tableau dashboards with nightly refreshes, reducing manual reporting effort by ~30%.</li>
+              <li>Prepared multimodal datasets and embeddings pipelines for LLM fine-tuning and evaluation with 95%+ data quality.</li>
+            </ul>
+          </div>
+
+          <div class="card exp-card">
+            <div class="exp-meta">Unilever | AI Engineer | Apr 2020 – Jul 2023</div>
+            <h3>Production ML & Forecasting</h3>
+            <ul>
+              <li>Designed demand forecasting models for 20+ SKUs using PyTorch and TensorFlow, cutting inventory overstock by 18%.</li>
+              <li>Improved forecast accuracy by 15% through feature engineering and hyperparameter tuning in a CI/CD-enabled MLOps workflow.</li>
+              <li>Engineered scalable inference pipelines using FastAPI, LangChain, Docker, AWS Bedrock, and SageMaker.</li>
+              <li>Processed terabytes of sales data using Python, Spark, Pandas, and Airflow for model training and batch workflows.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Certifications & Achievements</h2>
+            <p class="section-sub">Technical growth and recognition beyond project delivery.</p>
+          </div>
+        </div>
+
+        <div class="cert-grid">
+          <div class="card cert-card">
+            <h3>Technical Certifications</h3>
+            <div class="cert-list" style="margin-bottom: 14px;">
+              <span>Generative AI with Large Language Models</span>
+              <span>AWS Machine Learning Specialty (MLS-C01)</span>
+              <span>Machine Learning, Data Science & GenAI with Python</span>
+            </div>
+            <p>Certifications aligned with Generative AI, production ML, and cloud-native AI engineering.</p>
+          </div>
+
+          <div class="card cert-card">
+            <h3>Achievements</h3>
+            <ul>
+              <li>Prize and medal for robotic project innovation.</li>
+              <li>First prize in university dance competitions three times.</li>
+              <li>Best entertainer award for hosting university event.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-sub">Let’s build scalable AI systems together.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <h3>Get in touch</h3>
+            <p>I’m open to Applied AI, GenAI, LLM, and ML engineering opportunities where I can build production-grade systems with real business impact.</p>
+            <div class="contact-list">
+              <a href="mailto:mounikeshgoud34@gmail.com">Email</a>
+              <a href="https://github.com/Mounikesh08" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://linkedin.com/in/mounikesh-goud-4826b5214/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+
+          <div class="card contact-card">
+            <h3>Quick Info</h3>
+            <p><strong>Location:</strong> Chicago, IL</p>
+            <p><strong>Email:</strong> mounikeshgoud34@gmail.com</p>
+            <p><strong>Phone:</strong> (312) 493-3102</p>
+            <p><strong>Education:</strong> M.S. in Computer Science, Governors State University, GPA 3.9/4.0</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Mounikesh Goud. Built for GitHub Pages.</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const animateCounter = (el) => {
+      const target = Number(el.dataset.target || 0);
+      const duration = 1300;
+      const startTime = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const value = Math.floor(progress * target);
+        el.textContent = value + (target >= 100 ? '' : '+');
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + (target >= 100 ? 'K+' : '+');
+      };
+      requestAnimationFrame(step);
+    };
+
+    const statObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.stat-number').forEach((el) => statObserver.observe(el));
+  </script>
 </body>
 </html>
