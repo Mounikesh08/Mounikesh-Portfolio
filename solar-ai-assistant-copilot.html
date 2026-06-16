@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar AI Operations Copilot | Mounikesh Goud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #050711 0%, #071020 45%, #050813 100%); color: #eef2ff; line-height: 1.7; }
+    .container { width: min(calc(100% - 32px), 1000px); margin: 0 auto; padding: 40px 0 60px; }
+    .back { display: inline-block; margin-bottom: 28px; color: #5ce1e6; text-decoration: none; font-weight: 600; }
+    .hero { background: rgba(18, 25, 49, 0.72); border: 1px solid rgba(125, 152, 255, 0.18); border-radius: 24px; padding: 28px; margin-bottom: 24px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 12px; }
+    h2 { margin-top: 0; color: #5ce1e6; font-size: 1.3rem; }
+    p { color: #a8b2d1; }
+    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; }
+    .btn-primary { background: linear-gradient(135deg, #5ce1e6, #8dc8ff); color: #071020; }
+    .btn-secondary { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #eef2ff; }
+    .section { background: rgba(18, 25, 49, 0.55); border: 1px solid rgba(125, 152, 255, 0.14); border-radius: 20px; padding: 24px; margin-bottom: 18px; }
+    ul { color: #a8b2d1; padding-left: 20px; }
+    .tech { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #dce6ff; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to Portfolio</a>
+
+```
+<div class="hero">
+  <h1>Solar AI Operations Copilot</h1>
+  <p>
+    An end-to-end Applied AI system for solar operations, combining document-grounded RAG,
+    warranty/support triage, solar generation forecasting, monitoring, feedback loops,
+    and responsible AI guardrails.
+  </p>
+
+  <div class="buttons">
+    <a class="btn btn-primary" href="https://github.com/Mounikesh08/Solar-ai-assistant-copilot" target="_blank" rel="noopener noreferrer">View GitHub</a>
+    <a class="btn btn-secondary" href="#">Live Demo</a>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Problem</h2>
+  <p>
+    Solar companies and support teams handle large volumes of warranty policies, installation documents,
+    customer issue reports, battery concerns, and performance questions. Without AI assistance, support
+    teams spend significant time searching documents, identifying warranty requirements, triaging issues,
+    and estimating system performance under changing weather and battery conditions.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Solution</h2>
+  <p>
+    Built a production-style Solar AI Operations Copilot that allows users to upload solar documents,
+    ask policy-grounded questions, submit warranty/support issues, and estimate solar generation using
+    machine learning. The system includes a FastAPI backend, Streamlit customer UI, RAG pipeline,
+    warranty triage logic, forecasting model, monitoring layer, feedback capture, tests, CI/CD,
+    Docker readiness, and responsible AI guardrails.
+  </p>
+</div>
+
+<div class="section">
+  <h2>Architecture</h2>
+  <ul>
+    <li>Customer-facing Streamlit frontend for document Q&A, support issue review, and solar generation estimation</li>
+    <li>FastAPI backend exposing modular endpoints for RAG, triage, forecasting, monitoring, and guardrails</li>
+    <li>PDF ingestion pipeline with text extraction, chunking, embeddings, ChromaDB storage, and citation-based retrieval</li>
+    <li>Warranty/support triage agent for issue classification, priority assignment, escalation, and required document guidance</li>
+    <li>Solar generation forecasting module using structured weather, irradiance, battery SOC, and calendar features</li>
+    <li>SQLite-based monitoring and feedback layer for latency, confidence, status, errors, and user feedback tracking</li>
+    <li>Responsible AI guardrails for missing citations, low confidence, risky warranty claims, invalid inputs, and human review recommendations</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Tech Stack</h2>
+  <div class="tech">
+    <span class="chip">Python</span>
+    <span class="chip">FastAPI</span>
+    <span class="chip">Streamlit</span>
+    <span class="chip">LangChain</span>
+    <span class="chip">ChromaDB</span>
+    <span class="chip">Hugging Face</span>
+    <span class="chip">Scikit-learn</span>
+    <span class="chip">Random Forest</span>
+    <span class="chip">SQLite</span>
+    <span class="chip">Pytest</span>
+    <span class="chip">Docker</span>
+    <span class="chip">GitHub Actions</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Key Features</h2>
+  <ul>
+    <li>Solar document RAG assistant with PDF upload, embeddings, retrieval, and source citations</li>
+    <li>Warranty and support triage agent with issue category, priority, escalation decision, and required documents</li>
+    <li>Solar + battery generation estimator using machine learning forecasting on weather and battery features</li>
+    <li>Customer-friendly Streamlit interface for document questions, support issues, and generation estimates</li>
+    <li>Monitoring backend that logs module usage, request status, latency, confidence scores, and errors</li>
+    <li>User feedback loop with Helpful / Not Helpful responses and optional comments</li>
+    <li>Responsible AI guardrails for citation validation, low-confidence warnings, risky language detection, and human review</li>
+    <li>Production-readiness setup with tests, Dockerfile, GitHub Actions CI/CD, .env.example, and README documentation</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h2>Impact</h2>
+  <ul>
+    <li>Demonstrates a real-world Applied AI workflow aligned with solar, clean energy, warranty, and operations use cases</li>
+    <li>Reduces manual document searching by enabling citation-grounded answers from uploaded solar policies</li>
+    <li>Improves support consistency by standardizing issue triage, required documents, and escalation recommendations</li>
+    <li>Shows practical machine learning deployment through a solar generation forecasting API and customer UI</li>
+    <li>Adds production-style reliability through monitoring, feedback capture, guardrails, automated tests, and CI/CD</li>
+    <li>Highlights end-to-end AI engineering skills across GenAI, RAG, ML, FastAPI, Streamlit, DevOps, and responsible AI</li>
+  </ul>
+</div>
+```
+
+  </div>
+</body>
+</html>
 
