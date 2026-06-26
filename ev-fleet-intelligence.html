@@ -1,0 +1,124 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EV Fleet Intelligence Platform | Mounikesh Goud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #050711 0%, #071020 45%, #050813 100%); color: #eef2ff; line-height: 1.7; }
+    .container { width: min(calc(100% - 32px), 1000px); margin: 0 auto; padding: 40px 0 60px; }
+    .back { display: inline-block; margin-bottom: 28px; color: #5ce1e6; text-decoration: none; font-weight: 600; }
+    .hero { background: rgba(18, 25, 49, 0.72); border: 1px solid rgba(125, 152, 255, 0.18); border-radius: 24px; padding: 28px; margin-bottom: 24px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); margin: 0 0 12px; }
+    h2 { margin-top: 0; color: #5ce1e6; font-size: 1.3rem; }
+    p { color: #a8b2d1; }
+    .buttons { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 20px; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 999px; text-decoration: none; font-weight: 600; }
+    .btn-primary { background: linear-gradient(135deg, #5ce1e6, #8dc8ff); color: #071020; }
+    .btn-secondary { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: #eef2ff; }
+    .section { background: rgba(18, 25, 49, 0.55); border: 1px solid rgba(125, 152, 255, 0.14); border-radius: 20px; padding: 24px; margin-bottom: 18px; }
+    ul { color: #a8b2d1; padding-left: 20px; }
+    .tech { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: #dce6ff; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to Portfolio</a>
+
+    <div class="hero">
+      <h1>EV Fleet Intelligence Platform – Battery Intelligence & FSD Scenario Analytics</h1>
+      <p>
+        A production-style Applied AI platform for electric vehicle fleet monitoring, battery anomaly detection,
+        State-of-Health forecasting, FSD-style scenario risk mining, GenAI/RAG-style risk explanation,
+        and live fleet dashboard visualization.
+      </p>
+
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://github.com/Mounikesh08/EV-Fleet-Intelligence" target="_blank" rel="noopener noreferrer">View GitHub</a>
+        <a class="btn btn-secondary" href="https://ev-fleet-intelligence-dashboard.onrender.com" target="_blank" rel="noopener noreferrer">Live Demo</a>
+        <a class="btn btn-secondary" href="https://ev-fleet-intelligence.onrender.com/docs" target="_blank" rel="noopener noreferrer">FastAPI Docs</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Problem</h2>
+      <p>
+        Electric vehicle fleets generate large volumes of battery telemetry and driving-event data, but engineering
+        teams need a reliable way to identify battery degradation, abnormal operating patterns, risky autonomous-driving
+        scenarios, driver interventions, and near-collision events before they create safety, maintenance, or uptime issues.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Solution</h2>
+      <p>
+        Built and deployed an end-to-end EV Fleet Intelligence Platform with two modules: Battery Intelligence and
+        FSD Scenario Intelligence. The Battery module detects abnormal battery behavior, forecasts future State-of-Health,
+        and explains risk signals. The FSD module mines autonomous-driving style events, predicts scenario risk probability,
+        and recommends whether the event should be prioritized for fleet review or model training data mining.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Architecture</h2>
+      <ul>
+        <li>Synthetic EV battery telemetry and FSD-style driving-event generation</li>
+        <li>Battery health feature engineering for voltage, temperature, impedance, capacity, SOC, and SOH behavior</li>
+        <li>FSD scenario feature engineering for lead distance, relative speed, lane offset, braking, weather, and road context</li>
+        <li>Battery anomaly detection using Isolation Forest</li>
+        <li>Battery State-of-Health forecasting using Random Forest Regressor</li>
+        <li>FSD scenario risk classification using Random Forest Classifier</li>
+        <li>GenAI/RAG-style explanation layer for engineer-friendly battery risk summaries</li>
+        <li>FastAPI backend with prediction, forecasting, explanation, health, and FSD risk endpoints</li>
+        <li>Streamlit dashboard for executive overview, battery intelligence, FSD scenario intelligence, and model operations</li>
+        <li>MLflow experiment tracking, Joblib model persistence, API smoke tests, GitHub version control, and Render deployment</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Tech Stack</h2>
+      <div class="tech">
+        <span class="chip">Python</span>
+        <span class="chip">FastAPI</span>
+        <span class="chip">Streamlit</span>
+        <span class="chip">scikit-learn</span>
+        <span class="chip">MLflow</span>
+        <span class="chip">Pandas</span>
+        <span class="chip">NumPy</span>
+        <span class="chip">Plotly</span>
+        <span class="chip">Pydantic</span>
+        <span class="chip">Joblib</span>
+        <span class="chip">Docker</span>
+        <span class="chip">Render</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Features</h2>
+      <ul>
+        <li>Battery anomaly detection with high-temperature, impedance, voltage-drop, and current-behavior risk signals</li>
+        <li>Short-horizon battery State-of-Health forecasting for 1-day, 3-day, and 7-day prediction windows</li>
+        <li>FSD-style scenario risk mining using speed, lead-vehicle distance, relative speed, lane offset, braking, pedestrians, red lights, and weather</li>
+        <li>GenAI/RAG-style battery explanation that converts model outputs into maintenance-ready engineering recommendations</li>
+        <li>Live Streamlit dashboard connected to deployed FastAPI backend through environment-based API configuration</li>
+        <li>API smoke tests validating health, anomaly prediction, forecasting, explanation, and FSD risk endpoints</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Impact</h2>
+      <ul>
+        <li>Created a production-style AI system that demonstrates end-to-end ML engineering from data generation to live deployment</li>
+        <li>Combined EV battery intelligence with FSD scenario analytics to support predictive maintenance and autonomous-driving data review</li>
+        <li>Deployed a live demo with FastAPI backend, Streamlit frontend, GitHub repository, MLflow tracking, and API validation workflow</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
+```
